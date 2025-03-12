@@ -4,6 +4,10 @@ Attempting to recreate the game presented in https://github.com/vnglst/when-ai-f
 but instead of using a single pass to an LLM, I am attempting to recreate the games
 using agentic programming tools like GitHub Copilot, Windsurf, etc.
 
+| AI Model | Game | Comments |
+| --- | --- | --- |
+| GitHub Copilot GPT-4o | [Demo](./copilot-gpt4o/index.html) | This took much prompting |
+
 ## Prompt
 
 ```txt
@@ -19,8 +23,7 @@ Create a game called _Shepherd's Dog_ where the player controls a dog to herd sh
 
 ## Technical constraints
 
-- The game should be build in a single index.html file
-- The game should be build using HTML, CSS and JavaScript
+- The game should be build using HTML, CSS and JavaScript separated into `index.js`, `style.css` and `game.js`
 - It's okay to use external libraries when this is needed
 - You will generate your own assets using basic shapes, but they should be recognizable (e.g., triangles for sheep, circles for the dog)
 - The game should be playable on both desktop and mobile devices
