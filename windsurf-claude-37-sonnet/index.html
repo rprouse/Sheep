@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shepherd's Dog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="loadingScreen" class="screen">
+      <h1>Loading...</h1>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <div id="startScreen" class="screen">
+      <h1>Shepherd's Dog</h1>
+      <p>Help your dog herd the sheep into the pen before nightfall!</p>
+      <div class="buttons">
+        <button id="startButton">Start Game</button>
+        <button id="continueButton">Continue</button>
+      </div>
+      <div class="instructions">
+        <h2>How to Play</h2>
+        <p>Move your dog with the mouse or touch to herd sheep</p>
+        <p>Click or tap to bark and make sheep move faster</p>
+        <p>Herd at least 80% of sheep into the pen before nightfall</p>
+        <p>Watch out for obstacles and wolves!</p>
+      </div>
+      <div class="level-select">
+        <h2>Level Select</h2>
+        <div id="levelButtons"></div>
+      </div>
+    </div>
+
+    <div id="gameScreen" class="screen">
+      <div class="hud">
+        <div class="timer">Time: <span id="timeLeft">00:00</span></div>
+        <div class="score">Sheep in pen: <span id="sheepCount">0/0</span></div>
+        <div class="level">Level: <span id="currentLevel">1</span></div>
+      </div>
+      <canvas id="gameCanvas"></canvas>
+      <button id="pauseButton">Pause</button>
+    </div>
+
+    <div id="pauseScreen" class="screen">
+      <h1>Game Paused</h1>
+      <div class="buttons">
+        <button id="resumeButton">Resume</button>
+        <button id="restartButton">Restart Level</button>
+        <button id="quitButton">Quit to Menu</button>
+      </div>
+    </div>
+
+    <div id="winScreen" class="screen">
+      <h1>Level Complete!</h1>
+      <div class="stats">
+        <p>Sheep herded: <span id="finalSheepCount">0/0</span></p>
+        <p>Time remaining: <span id="timeRemaining">00:00</span></p>
+        <p>Score: <span id="finalScore">0</span></p>
+      </div>
+      <div class="buttons">
+        <button id="nextLevelButton">Next Level</button>
+        <button id="replayLevelButton">Replay Level</button>
+        <button id="menuButton">Back to Menu</button>
+      </div>
+    </div>
+
+    <div id="gameOverScreen" class="screen">
+      <h1>Game Over</h1>
+      <p id="gameOverReason">You ran out of time!</p>
+      <div class="stats">
+        <p>Sheep herded: <span id="gameOverSheepCount">0/0</span></p>
+        <p>Score: <span id="gameOverScore">0</span></p>
+      </div>
+      <div class="buttons">
+        <button id="tryAgainButton">Try Again</button>
+        <button id="gameOverMenuButton">Back to Menu</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
