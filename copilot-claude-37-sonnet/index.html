@@ -12,6 +12,7 @@
     <div id="startScreen" class="screen">
       <h1>Shepherd's Dog</h1>
       <p>Herd the sheep into the pen before nightfall!</p>
+      <p>Use your mouse to control the dog. Click to bark and make sheep move faster.</p>
       <button class="button" id="startButton">Start Game</button>
       <button class="button" id="continueButton">Continue Game</button>
     </div>
@@ -25,6 +26,8 @@
     <div id="gameOverScreen" class="screen" style="display: none;">
       <h1>Game Over!</h1>
       <p>You failed to herd enough sheep before nightfall.</p>
+      <p>Sheep in pen: <span id="gameOverSheepCount">0</span></p>
+      <p>Score: <span id="gameOverScore">0</span></p>
       <button class="button" id="restartButton">Restart</button>
       <button class="button" id="mainMenuButton">Main Menu</button>
     </div>
