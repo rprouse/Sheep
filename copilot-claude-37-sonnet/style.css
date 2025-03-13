@@ -12,7 +12,6 @@ body {
   height: 100vh;
   background-color: #333;
   font-family: 'Arial', sans-serif;
-  touch-action: none; /* Prevent default touch actions for mobile */
 }
 
 canvas {
@@ -20,7 +19,6 @@ canvas {
   display: block;
   max-width: 100%;
   max-height: 100vh;
-  cursor: pointer; /* Show pointer cursor to indicate interactivity */
 }
 
 .screen {
@@ -33,25 +31,20 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   text-align: center;
   z-index: 10;
-  padding: 20px;
 }
 
 .screen h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #f8d56b; /* Golden yellow for titles */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .screen p {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  max-width: 800px;
-  line-height: 1.4;
+  margin-bottom: 2rem;
 }
 
 .button {
@@ -63,84 +56,31 @@ canvas {
   border-radius: 4px;
   cursor: pointer;
   margin: 0.5rem;
-  transition: all 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
 .button:hover {
   background-color: #507a3a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.button:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hud {
   position: absolute;
   top: 10px;
   left: 10px;
-  padding: 12px 15px;
-  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 5;
-}
-
-.hud div {
-  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 .level-display {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 12px 15px;
-  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 5;
-}
-
-/* Media queries for responsive design */
-@media (max-width: 768px) {
-  .screen h1 {
-    font-size: 2.5rem;
-  }
-  
-  .screen p {
-    font-size: 1.2rem;
-  }
-  
-  .button {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-  }
-  
-  .hud, .level-display {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .screen h1 {
-    font-size: 2rem;
-  }
-  
-  .screen p {
-    font-size: 1rem;
-  }
-  
-  .button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
+  border-radius: 5px;
+  font-size: 1rem;
 }
