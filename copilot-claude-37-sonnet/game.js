@@ -678,11 +678,11 @@ class Sheep {
     this.flockRadius = 100;
     this.separationWeight = 1.5;
     this.alignmentWeight = 1.0;
-    this.cohesionWeight = 1.0;
+    this.cohesionWeight = 1.8;
     this.dogAvoidanceWeight = 2.0;
     this.wolfAvoidanceWeight = 2.5;
     this.obstacleAvoidanceWeight = 2.0;
-    this.wanderWeight = 0.3;
+    this.wanderWeight = 0.5;
     this.friction = 0.95;
     this.headAngle = 0;
   }
@@ -903,11 +903,14 @@ class Sheep {
       const dy = otherSheep.y - this.y;
       const distSquared = dx * dx + dy * dy;
       
-      // If within cohesion distance
-      if (distSquared < this.flockRadius * this.flockRadius) {
-        avgX += otherSheep.x;
-        avgY += otherSheep.y;
-        count++;
+      // If within cohesion distance - use a larger radius for cohesion
+      const extendedRadius = this.flockRadius * 1.5;
+      if (distSquared < extendedRadius * extendedRadius) {
+        // Weight closer sheep more heavily
+        const weight = 1.0 - Math.sqrt(distSquared) / extendedRadius;
+        avgX += otherSheep.x * weight;
+        avgY += otherSheep.y * weight;
+        count += weight;
       }
     }
     
@@ -928,6 +931,12 @@ class Sheep {
       if (magnitude > 0) {
         steerX /= magnitude;
         steerY /= magnitude;
+        
+        // Scale by distance - stronger pull when further from center
+        const distToCenter = magnitude;
+        const pullFactor = Math.min(distToCenter / 100, 1.5);
+        steerX *= pullFactor;
+        steerY *= pullFactor;
       }
     }
     
@@ -1022,12 +1031,33 @@ class Sheep {
   }
   
   calculateWander() {
-    // Random wander force
+    // Random wander force with constant forward movement
     const wanderStrength = 0.5;
-    const wanderX = (Math.random() * 2 - 1) * wanderStrength;
-    const wanderY = (Math.random() * 2 - 1) * wanderStrength;
+    const constantMovement = 0.3; // Add constant movement
     
-    return { x: wanderX, y: wanderY };
+    // Random component
+    const randomX = (Math.random() * 2 - 1) * wanderStrength;
+    const randomY = (Math.random() * 2 - 1) * wanderStrength;
+    
+    // Add constant forward movement in current direction
+    let forwardX = 0;
+    let forwardY = 0;
+    
+    // If sheep is already moving, continue in that general direction
+    if (Math.abs(this.vx) > 0.1 || Math.abs(this.vy) > 0.1) {
+      const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
+      forwardX = (this.vx / speed) * constantMovement;
+      forwardY = (this.vy / speed) * constantMovement;
+    } else {
+      // If not moving, use head direction
+      forwardX = Math.cos(this.headAngle) * constantMovement;
+      forwardY = Math.sin(this.headAngle) * constantMovement;
+    }
+    
+    return { 
+      x: randomX + forwardX, 
+      y: randomY + forwardY 
+    };
   }
   
   draw(ctx) {
