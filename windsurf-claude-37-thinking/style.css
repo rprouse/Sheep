@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e6f7ff;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  max-height: 800px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #9cd969;
+  z-index: 0;
+}
+
+/* Game UI */
+#game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1rem;
+  z-index: 10;
+  display: none;
+}
+
+#score-container, #timer-container, #level-container {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Screens */
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  z-index: 20;
+}
+
+.screen h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #f8e45c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.screen p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+/* Start screen styles */
+#start-screen {
+  text-align: center;
+}
+
+#start-screen h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #5c3c10;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#start-screen p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.instructions {
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h3 {
+  color: #5c3c10;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.instructions ul {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 8px;
+}
+
+/* Buttons */
+.main-button, .secondary-button {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.main-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.main-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.secondary-button {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.secondary-button:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+/* Level selection */
+.level-selection {
+  margin: 20px 0;
+}
+
+.level-selection h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+#level-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.level-button {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.level-button.unlocked {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.level-button.selected {
+  transform: scale(1.15);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.level-button.locked {
+  background-color: #aaa;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Hide by default */
+#win-screen, #game-over-screen, #pause-screen {
+  display: none;
+}

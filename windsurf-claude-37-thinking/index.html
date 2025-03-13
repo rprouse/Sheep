@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shepherd's Dog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <canvas id="gameCanvas"></canvas>
+      
+      <!-- Start Screen -->
+      <div id="start-screen" class="screen">
+        <h1>Shepherd's Dog</h1>
+        <p>Control your dog to herd the sheep into the pen (marked as GOAL) before nightfall!</p>
+        <div class="instructions">
+          <h3>How to Play:</h3>
+          <ul>
+            <li>Move the dog with mouse/touch to guide the sheep</li>
+            <li>Click/tap to bark and make sheep move faster</li>
+            <li>Herd sheep into the designated pen area to win</li>
+            <li>Complete the level before time runs out</li>
+          </ul>
+        </div>
+        <div class="level-selection">
+          <h2>Select Level</h2>
+          <div id="level-buttons"></div>
+        </div>
+        <button id="start-button" class="main-button">Start Game</button>
+      </div>
+
+      <!-- Game UI -->
+      <div id="game-ui">
+        <div id="score-container">
+          <span>Sheep in pen: </span>
+          <span id="sheep-count">0</span>/<span id="total-sheep">0</span>
+        </div>
+        <div id="timer-container">
+          <span>Time until nightfall: </span>
+          <span id="timer">00:00</span>
+        </div>
+        <div id="level-container">
+          <span>Level: </span>
+          <span id="current-level">1</span>
+        </div>
+      </div>
+
+      <!-- Win Screen -->
+      <div id="win-screen" class="screen">
+        <h1>Level Complete!</h1>
+        <p>You successfully herded <span id="win-sheep-count">0</span> sheep!</p>
+        <button id="next-level-button" class="main-button">Next Level</button>
+        <button id="win-menu-button" class="secondary-button">Main Menu</button>
+      </div>
+
+      <!-- Game Over Screen -->
+      <div id="game-over-screen" class="screen">
+        <h1>Game Over</h1>
+        <p>Nightfall came too quickly!</p>
+        <p>You herded <span id="game-over-sheep-count">0</span> sheep.</p>
+        <button id="retry-button" class="main-button">Try Again</button>
+        <button id="game-over-menu-button" class="secondary-button">Main Menu</button>
+      </div>
+      
+      <!-- Pause Screen -->
+      <div id="pause-screen" class="screen">
+        <h1>Game Paused</h1>
+        <button id="resume-button" class="main-button">Resume</button>
+        <button id="pause-menu-button" class="secondary-button">Main Menu</button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
