@@ -6,6 +6,7 @@ using agentic programming tools like GitHub Copilot, Windsurf, etc.
 
 | AI Model | Game | Comments |
 | --- | --- | --- |
+| GitHub Copilot Claude 3.7 Sonnet | [Demo](./copilot-claude-37-sonnet/index.html) | Sorry, the response hit the length limit. Please rephrase your prompt. |
 | GitHub Copilot GPT-4o | [Demo](./copilot-gpt4o/index.html) | This took much prompting |
 | Windsurf Claude 3.7 Sonnet | [Demo](./windsurf-claude-37-sonnet/index.html) | This produced a much nicer and feature rich game on the first pass, but despite many prompts, I could not get the game working properly. I do like the cleanliness of the code though and feel like I could dive in, fix the issues and continue. |
 

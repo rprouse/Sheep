@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shepherd's Dog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="startScreen" class="screen">
+      <h1>Shepherd's Dog</h1>
+      <p>Herd the sheep into the pen before nightfall!</p>
+      <button class="button" id="startButton">Start Game</button>
+      <button class="button" id="continueButton">Continue Game</button>
+    </div>
+
+    <div id="levelScreen" class="screen" style="display: none;">
+      <h1>Level <span id="levelNumber">1</span></h1>
+      <p>Herd at least <span id="sheepTarget">80</span>% of sheep into the pen before nightfall.</p>
+      <button class="button" id="startLevelButton">Start Level</button>
+    </div>
+
+    <div id="gameOverScreen" class="screen" style="display: none;">
+      <h1>Game Over!</h1>
+      <p>You failed to herd enough sheep before nightfall.</p>
+      <button class="button" id="restartButton">Restart</button>
+      <button class="button" id="mainMenuButton">Main Menu</button>
+    </div>
+
+    <div id="winScreen" class="screen" style="display: none;">
+      <h1>Level Complete!</h1>
+      <p>You herded <span id="sheepCount">0</span> sheep into the pen.</p>
+      <p>Score: <span id="finalScore">0</span></p>
+      <button class="button" id="nextLevelButton">Next Level</button>
+      <button class="button" id="winMenuButton">Main Menu</button>
+    </div>
+
+    <div id="gameCompletedScreen" class="screen" style="display: none;">
+      <h1>Congratulations!</h1>
+      <p>You completed all levels!</p>
+      <p>Final Score: <span id="totalScore">0</span></p>
+      <button class="button" id="playAgainButton">Play Again</button>
+    </div>
+
+    <div class="hud" id="hud" style="display: none;">
+      <div>Time until nightfall: <span id="timer">60</span></div>
+      <div>Sheep in pen: <span id="penCount">0</span>/<span id="totalSheep">50</span></div>
+      <div>Score: <span id="score">0</span></div>
+    </div>
+
+    <div class="level-display" id="levelDisplay" style="display: none;">
+      Level: <span id="currentLevel">1</span>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
