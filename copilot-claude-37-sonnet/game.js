@@ -679,7 +679,7 @@ class Sheep {
     this.separationWeight = 1.5;
     this.alignmentWeight = 1.0;
     this.cohesionWeight = 1.8;
-    this.dogAvoidanceWeight = 2.0;
+    this.dogAvoidanceWeight = 2.5;
     this.wolfAvoidanceWeight = 2.5;
     this.obstacleAvoidanceWeight = 2.0;
     this.wanderWeight = 0.5;
@@ -800,18 +800,7 @@ class Sheep {
       this.vy = (this.vy / speed) * this.maxSpeed;
     }
     
-    // If dog is barking, increase speed
-    if (this.game.dog && this.game.dog.barkDuration > 0) {
-      const distToDog = Math.sqrt(
-        Math.pow(this.x - this.game.dog.x, 2) + 
-        Math.pow(this.y - this.game.dog.y, 2)
-      );
-      
-      if (distToDog < this.game.dog.barkRadius) {
-        this.vx *= 1.5;
-        this.vy *= 1.5;
-      }
-    }
+    // If dog is barking, increase speed (handled in calculateDogAvoidance)
   }
   
   calculateSeparation() {
@@ -952,12 +941,21 @@ class Sheep {
       const dy = this.y - this.game.dog.y;
       const distSquared = dx * dx + dy * dy;
       
-      // If within flee distance
-      if (distSquared < this.fleeRadius * this.fleeRadius) {
-        const dist = Math.sqrt(distSquared);
-        
+      // Always flee from dog, but with strength based on distance
+      const dist = Math.sqrt(distSquared);
+      
+      // Extended flee radius - sheep always move away from dog
+      const extendedFleeRadius = this.fleeRadius * 2;
+      
+      if (dist < extendedFleeRadius) {
         // Flee strength inversely proportional to distance
-        const fleeStrength = 1.0 - (dist / this.fleeRadius);
+        // Stronger effect when closer to dog
+        let fleeStrength = 2.0 - (dist / extendedFleeRadius);
+        
+        // If dog is barking and sheep is within bark radius, increase flee strength
+        if (this.game.dog.barkDuration > 0 && dist < this.game.dog.barkRadius) {
+          fleeStrength *= 2.5; // Much stronger flee response when dog barks
+        }
         
         steerX = (dx / dist) * fleeStrength;
         steerY = (dy / dist) * fleeStrength;
