@@ -4,11 +4,12 @@ Attempting to recreate the game presented in https://github.com/vnglst/when-ai-f
 but instead of using a single pass to an LLM, I am attempting to recreate the games
 using agentic programming tools like GitHub Copilot, Windsurf, etc.
 
-| AI Model | Game | Comments |
-| --- | --- | --- |
-| GitHub Copilot Claude 3.7 Sonnet | [Demo](./copilot-claude-37-sonnet/index.html) | Sorry, the response hit the length limit. Please rephrase your prompt. |
-| GitHub Copilot GPT-4o | [Demo](./copilot-gpt4o/index.html) | This took much prompting |
-| Windsurf Claude 3.7 Sonnet | [Demo](./windsurf-claude-37-sonnet/index.html) | This produced a much nicer and feature rich game on the first pass, but despite many prompts, I could not get the game working properly. I do like the cleanliness of the code though and feel like I could dive in, fix the issues and continue. |
+| Tool | Model | Game | Comments |
+| --- | --- | --- | --- |
+| Aider | Claude 3.7 Sonnet | [Demo](./aider-claude-37-sonnet/index.html) | Game worked after first prompt including loading screens. |
+| VS Code GitHub Copilot | Claude 3.7 Sonnet | [Demo](./copilot-claude-37-sonnet/index.html) | Didn't complete with the error "Sorry, the response hit the length limit. Please rephrase your prompt." Tried again, but still failed to complete. |
+| VS Code GitHub Copilot | GPT-4o | [Demo](./copilot-gpt4o/index.html) | This took much prompting and I'm still not happy with it. The graphics are rudementary, there is no game load screen and the gameplay is rough. |
+| Windsurf | Claude 3.7 Sonnet | [Demo](./windsurf-claude-37-sonnet/index.html) | This produced a much nicer and feature rich game on the first pass, but despite many prompts, I could not get the game working properly. It kept going in loops trying to fix issues. You can get the game working by pausing and resuming. I do like the cleanliness of the code though and feel like I could dive in, fix the issues and continue. I also like that it added a [Readme.md](./windsurf-claude-37-sonnet/README.md) explaining the game. |
 
 ## Prompt
 
