@@ -672,7 +672,7 @@ class Sheep {
     this.game = game;
     this.vx = 0;
     this.vy = 0;
-    this.maxSpeed = 100;
+    this.maxSpeed = 150;
     this.inPen = false;
     this.fleeRadius = 150;
     this.flockRadius = 100;
